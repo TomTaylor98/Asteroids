@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://bcrbs83b4oyw6"]
+
+[ext_resource type="Texture2D" uid="uid://btvw4mfs45e06" path="res://bullet.png" id="1_dt5xl"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_k6dpf"]
+particle_flag_disable_z = true
+direction = Vector3(0, 0, 0)
+spread = 180.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 80.0
+initial_velocity_max = 100.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+damping_min = 34.74
+damping_max = 34.74
+
+[node name="GPUParticles2D" type="GPUParticles2D"]
+emitting = false
+amount = 12
+process_material = SubResource("ParticleProcessMaterial_k6dpf")
+texture = ExtResource("1_dt5xl")
+lifetime = 2.5
+one_shot = true
+speed_scale = 2.94
+explosiveness = 1.0
+fixed_fps = 15
+interpolate = false
+fract_delta = false
+collision_base_size = 0.0

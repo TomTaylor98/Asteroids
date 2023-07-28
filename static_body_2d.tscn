@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://n8ttcfhuvhx5"]
+
+[node name="testobjects" type="StaticBody2D"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-27, -25, -20, 27, 8, 6, -11, 1, 27, -9)

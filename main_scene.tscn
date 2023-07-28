@@ -1,0 +1,177 @@
+[gd_scene load_steps=10 format=3 uid="uid://cs03ohfbioojp"]
+
+[ext_resource type="Script" path="res://main_scene.gd" id="1_54sa8"]
+[ext_resource type="AudioStream" uid="uid://dg5jdwoon42hb" path="res://sounds/shipExplosion.wav" id="2_8ov0o"]
+[ext_resource type="FontFile" uid="uid://d1gh0qdvfjg72" path="res://charge-vector-font/ChargeVectorThin-d9qdR.ttf" id="2_veq0t"]
+[ext_resource type="AudioStream" uid="uid://ciev8aetpihqp" path="res://sounds/asteroidExplosion.wav" id="2_yphms"]
+[ext_resource type="Texture2D" uid="uid://b3lvikjp65s8m" path="res://background.png" id="5_d45qn"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_k6p8n"]
+line_spacing = 20.0
+font = ExtResource("2_veq0t")
+font_size = 40
+outline_size = 2
+outline_color = Color(0.984314, 0.956863, 0.952941, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ffvjb"]
+line_spacing = 10.0
+font = ExtResource("2_veq0t")
+font_size = 100
+
+[sub_resource type="LabelSettings" id="LabelSettings_c4dth"]
+line_spacing = 0.0
+font = ExtResource("2_veq0t")
+font_size = 60
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_udwqd"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_54sa8")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1281.0
+offset_bottom = 723.0
+
+[node name="GameOverMenu" type="VBoxContainer" parent="Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -91.5
+offset_top = -90.0
+offset_right = 91.5
+offset_bottom = 90.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GameOverText" type="Label" parent="Control/GameOverMenu"]
+layout_mode = 2
+text = "Game Over"
+label_settings = SubResource("LabelSettings_k6p8n")
+horizontal_alignment = 1
+uppercase = true
+
+[node name="Restart" type="Button" parent="Control/GameOverMenu"]
+layout_mode = 2
+size_flags_horizontal = 4
+tooltip_text = "button to start the game"
+theme_override_colors/font_hover_color = Color(0.729412, 0.729412, 0.976471, 1)
+theme_override_fonts/font = ExtResource("2_veq0t")
+theme_override_font_sizes/font_size = 20
+text = "Restart"
+
+[node name="Options" type="Button" parent="Control/GameOverMenu"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_hover_color = Color(0.760784, 0.760784, 0.992157, 1)
+theme_override_fonts/font = ExtResource("2_veq0t")
+text = "Options"
+
+[node name="Exit" type="Button" parent="Control/GameOverMenu"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_hover_color = Color(0.772549, 0.713726, 0.976471, 1)
+theme_override_fonts/font = ExtResource("2_veq0t")
+text = "Exit"
+
+[node name="MainMenu" type="VBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -95.5
+offset_top = -90.0
+offset_right = 95.5
+offset_bottom = 90.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MainMenuText" type="Label" parent="Control/MainMenu"]
+layout_mode = 2
+text = "Main menu"
+label_settings = SubResource("LabelSettings_k6p8n")
+horizontal_alignment = 1
+uppercase = true
+
+[node name="Start" type="Button" parent="Control/MainMenu"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_hover_color = Color(0.729412, 0.729412, 0.976471, 1)
+theme_override_fonts/font = ExtResource("2_veq0t")
+text = "Start Game
+"
+
+[node name="Options" type="Button" parent="Control/MainMenu"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_hover_color = Color(0.760784, 0.760784, 0.992157, 1)
+theme_override_fonts/font = ExtResource("2_veq0t")
+text = "Options"
+
+[node name="Exit" type="Button" parent="Control/MainMenu"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_hover_color = Color(0.772549, 0.713726, 0.976471, 1)
+theme_override_fonts/font = ExtResource("2_veq0t")
+text = "Exit"
+
+[node name="Score" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -19.5
+offset_right = 26.5
+offset_bottom = 127.0
+grow_horizontal = 2
+text = "00"
+label_settings = SubResource("LabelSettings_ffvjb")
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="livescounter" type="Label" parent="Control"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 1
+offset_left = 8.0
+offset_top = 9.0
+offset_right = 408.0
+offset_bottom = 80.0
+text = "0"
+label_settings = SubResource("LabelSettings_c4dth")
+horizontal_alignment = 1
+
+[node name="explosionSoundAsteroid" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_yphms")
+pitch_scale = 2.75
+attenuation = 0.615572
+
+[node name="explosionSoundShip" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_8ov0o")
+
+[node name="spawnTimer" type="Timer" parent="."]
+wait_time = 21.955
+autostart = true
+
+[node name="background" type="Sprite2D" parent="."]
+show_behind_parent = true
+material = SubResource("ShaderMaterial_udwqd")
+position = Vector2(-266, -185)
+scale = Vector2(1500, 922)
+texture = ExtResource("5_d45qn")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+
+[connection signal="child_exiting_tree" from="." to="." method="_on_child_exiting_tree"]
+[connection signal="pressed" from="Control/GameOverMenu/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="Control/GameOverMenu/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="Control/MainMenu/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Control/MainMenu/Exit" to="." method="_on_exit_pressed"]
+[connection signal="timeout" from="spawnTimer" to="." method="_on_timer_timeout"]
