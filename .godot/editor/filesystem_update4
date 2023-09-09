@@ -1,0 +1,9 @@
+res://main_scene.tscn
+res://static_body_2d.tscn
+res://player.tscn
+res://Game.tscn
+res://player.gd
+res://actors/player.tscn
+res://Game.gd
+res://scripts/player.gd
+res://scripts/asteroid.gd

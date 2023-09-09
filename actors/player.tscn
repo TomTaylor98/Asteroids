@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://i2q0hf8a2li0"]
+
+[ext_resource type="Shader" path="res://shaders/player.gdshader" id="1_jn73b"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="2_m82v8"]
+[ext_resource type="AudioStream" uid="uid://b1ogq3tuxmoe1" path="res://sounds/shoot.wav" id="3_l5g3m"]
+[ext_resource type="AudioStream" uid="uid://dg5jdwoon42hb" path="res://sounds/shipExplosion.wav" id="4_3shyc"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_d56tw"]
+shader = ExtResource("1_jn73b")
+shader_parameter/hit_opacity = 0.0
+
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_2kqb6"]
+
+[node name="player" type="CharacterBody2D"]
+material = SubResource("ShaderMaterial_d56tw")
+collision_mask = 10
+motion_mode = 1
+safe_margin = 1.2
+script = ExtResource("2_m82v8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("ConvexPolygonShape2D_2kqb6")
+debug_color = Color(0.694118, 0.494118, 0.101961, 0.419608)
+
+[node name="cooldownTimer" type="Timer" parent="."]
+wait_time = 0.2
+
+[node name="damageTimer" type="Timer" parent="."]
+wait_time = 2.5
+one_shot = true
+
+[node name="shoot" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_l5g3m")
+volume_db = -2.971
+pitch_scale = 1.61
+
+[node name="explosion" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_3shyc")
+
+[connection signal="timeout" from="cooldownTimer" to="." method="_on_cooldown_timeout"]
+[connection signal="timeout" from="damageTimer" to="." method="_on_damage_timer_timeout"]

@@ -1,0 +1,5 @@
+res://actors/Asteroid.tscn::812cf9b333accead0d73af5abf8e637a::1694259255::res://.godot/exported/133200997/export-ef657512d8e56aea470fa8ed40cf1c66-Asteroid.scn
+res://actors/player.tscn::7b9317ac77af3f0378e2ede2820dab3c::1694259747::res://.godot/exported/133200997/export-e86f95e5088e93066d258d9192ab0748-player.scn
+res://effects/explosion.tscn::b7977dcba8f26dec0a3cef2886252fba::1694259087::res://.godot/exported/133200997/export-d13ad3ec19d38680442bac4bf9eabf49-explosion.scn
+res://weapons/projectile.tscn::09b6a7b2ecef643aa45a01b4a162ff7c::1694259346::res://.godot/exported/133200997/export-adf21237e2d89002d3e7f58d3837dfef-projectile.scn
+res://Game.tscn::dee9fa39167b8da18b5fdf86dac0529c::1694259747::res://.godot/exported/133200997/export-6455994a605b35b7d96f8362f3055c4a-Game.scn
