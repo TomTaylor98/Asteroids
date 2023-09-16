@@ -10,21 +10,19 @@ var score = 0
 var asteroid_asset = load("res://actors/Asteroid.tscn")
 var Player = preload("res://actors/player.tscn")
 var explosionsound = preload("res://sounds/shipExplosion.wav")
-
-
-
-
-@onready var center = get_viewport_rect().get_center()
-@onready var screensize = get_viewport_rect().size
+var Enemy = preload("res://actors/ufo.tscn")
 
 @onready var mainMenu = $Control/MainMenu
 @onready var gameoverMenu = $Control/GameOverMenu
 @onready var livescounter = $Control/livescounter
 
+@onready var center = get_viewport_rect().get_center()
+@onready var screensize = get_viewport_rect().size
+
 @onready var player = Player.instantiate()
 
 func _ready():
-	
+	$UFOspawnTimer.start()
 	player.position = center
 	add_child(player)
 	livescounter.text = str(player.lives)
@@ -98,3 +96,14 @@ func _on_timer_timeout():
 
 func _update_lives_counter():
 	livescounter.text = str(player.lives)
+
+func _on_uf_ospawn_timer_timeout():
+	var enemy = Enemy.instantiate()
+	add_child(enemy)
+	enemy.direction = Vector2.LEFT if randi_range(0,1)==0 else Vector2.RIGHT
+	enemy.position.x = -100 if enemy.direction==Vector2.RIGHT else screensize +100
+	enemy.position.y = 100
+	
+	
+	$UFOspawnTimer.wait_time = 20 + randi()% 10
+	$UFOspawnTimer.start()

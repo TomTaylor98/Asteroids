@@ -57,6 +57,7 @@ func accelerate(rotation,time):
 func shoot():
 	$shoot.play()
 	var projectile = Projectile.instantiate()
+	projectile.add_collision_exception_with(self)
 	projectile.position = position + Vector2.UP.rotated(rotation)*10
 	projectile.direction = Vector2.UP.rotated(rotation)
 	get_parent().add_child(projectile)

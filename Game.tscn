@@ -157,9 +157,13 @@ stream = ExtResource("4_v5wsf")
 wait_time = 21.955
 autostart = true
 
+[node name="UFOspawnTimer" type="Timer" parent="."]
+wait_time = 4.521
+
 [connection signal="child_exiting_tree" from="." to="." method="_on_child_exiting_tree"]
 [connection signal="pressed" from="Control/GameOverMenu/Restart" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="Control/GameOverMenu/Exit" to="." method="_on_exit_pressed"]
 [connection signal="pressed" from="Control/MainMenu/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Control/MainMenu/Exit" to="." method="_on_exit_pressed"]
 [connection signal="timeout" from="spawnTimer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="UFOspawnTimer" to="." method="_on_uf_ospawn_timer_timeout"]

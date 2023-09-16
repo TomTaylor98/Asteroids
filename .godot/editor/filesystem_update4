@@ -1,9 +1,7 @@
-res://main_scene.tscn
-res://static_body_2d.tscn
-res://player.tscn
-res://Game.tscn
-res://player.gd
 res://actors/player.tscn
-res://Game.gd
+res://scripts/enemy.gd
+res://actors/ufo.tscn
+res://testing.tscn
+res://Game.tscn
+res://weapons/projectile.tscn
 res://scripts/player.gd
-res://scripts/asteroid.gd

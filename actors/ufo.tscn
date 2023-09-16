@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://ckvhewhuhdmr"]
+
+[ext_resource type="Script" path="res://scripts/enemy.gd" id="1_fhafu"]
+[ext_resource type="Texture2D" uid="uid://dds63lcgudd2n" path="res://textures/UFO.png" id="2_vx2y3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ibglj"]
+radius = 13.0544
+
+[node name="UFO" type="CharacterBody2D"]
+position = Vector2(800, 253)
+collision_layer = 8
+collision_mask = 5
+script = ExtResource("1_fhafu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -1)
+scale = Vector2(0.139605, 0.137677)
+texture = ExtResource("2_vx2y3")
+
+[node name="cooldownTimer" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, -1)
+scale = Vector2(3, 1.8)
+shape = SubResource("CircleShape2D_ibglj")
+
+[connection signal="timeout" from="cooldownTimer" to="." method="_on_cooldown_timer_timeout"]

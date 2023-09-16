@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://lp4e0hjswywc"]
+
+[ext_resource type="PackedScene" uid="uid://ckvhewhuhdmr" path="res://actors/ufo.tscn" id="1_882ih"]
+[ext_resource type="PackedScene" uid="uid://i2q0hf8a2li0" path="res://actors/player.tscn" id="1_xgfse"]
+
+[node name="Testing" type="Node2D"]
+
+[node name="player" parent="." instance=ExtResource("1_xgfse")]
+position = Vector2(629, 299)
+
+[node name="UFO" parent="." instance=ExtResource("1_882ih")]
+position = Vector2(302, 308)
