@@ -101,9 +101,9 @@ func _on_uf_ospawn_timer_timeout():
 	var enemy = Enemy.instantiate()
 	add_child(enemy)
 	enemy.direction = Vector2.LEFT if randi_range(0,1)==0 else Vector2.RIGHT
-	enemy.position.x = -100 if enemy.direction==Vector2.RIGHT else screensize +100
+	enemy.position.x = -100 if enemy.direction==Vector2.RIGHT else screensize.x +100
 	enemy.position.y = 100
 	
 	
-	$UFOspawnTimer.wait_time = 20 + randi()% 10
+	$UFOspawnTimer.wait_time = 30 + randi()% 50
 	$UFOspawnTimer.start()

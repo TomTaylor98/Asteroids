@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3]
+[gd_scene load_steps=4 format=3 uid="uid://bf7lmubw2wn02"]
 
 [ext_resource type="Texture2D" uid="uid://btvw4mfs45e06" path="res://textures/bullet.png" id="1_dt5xl"]
+[ext_resource type="Script" path="res://scripts/explosion.gd" id="2_gw5b1"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_k6dpf"]
 particle_flag_disable_z = true
@@ -14,7 +15,7 @@ orbit_velocity_max = 0.0
 damping_min = 34.74
 damping_max = 34.74
 
-[node name="GPUParticles2D" type="GPUParticles2D"]
+[node name="explosion" type="GPUParticles2D"]
 emitting = false
 amount = 12
 process_material = SubResource("ParticleProcessMaterial_k6dpf")
@@ -27,3 +28,4 @@ fixed_fps = 15
 interpolate = false
 fract_delta = false
 collision_base_size = 0.0
+script = ExtResource("2_gw5b1")

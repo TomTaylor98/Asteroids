@@ -1,7 +1,12 @@
 res://actors/player.tscn
-res://scripts/enemy.gd
 res://actors/ufo.tscn
 res://testing.tscn
 res://Game.tscn
 res://weapons/projectile.tscn
 res://scripts/player.gd
+res://Game.gd
+res://scripts/enemy.gd
+res://effects/explosion.tscn
+res://effects/explosion.gd
+res://scripts/explosion.gd
+res://scripts/projectile.gd

@@ -8,7 +8,6 @@ var size = 20.0
 var offset = 5.0
 var Explosion = preload("res://effects/explosion.tscn")
 var Projectile = preload("res://weapons/projectile.tscn")
-
 var shootsound = preload("res://sounds/asteroidExplosion.wav")
 
 var lives = 3
@@ -97,11 +96,8 @@ func _physics_process(delta):
 			set_collision_mask_value(2,false)
 			
 		canTakeDamage = false
-		
 		$damageTimer.start()
 		
-	
-
 func _draw():
 	draw_polyline(ship_points,Color.WHITE,2.0)
 	
